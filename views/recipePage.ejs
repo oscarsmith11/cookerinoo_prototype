@@ -1,0 +1,385 @@
+<%- include("partials/header"); -%>
+<link rel="stylesheet" href="/css/recipe.css">
+<% if(authenticated) { %>
+<%- include("partials/navUser"); -%>
+<% } else { %>
+<%- include("partials/nav") -%>
+<% } %>
+
+<main>
+<div class="container">
+  
+<div class="hero block box recipe">
+
+<div class="has-text-left">
+  <% if(recipeFromCurrentUser) { %>
+    <button type="button" name="button" class="button is-default is-cdark has-icon-left" onclick="editRecipe()">
+      <span class="icon"><i class="fas fa-edit"></i></span>
+      <span>edit</span>
+    </button>
+  <% } %>
+  <section class="section">
+    <div class="columns is-centered has-text-centered-mobile is-vcentered">
+      <div class="column is-narrow">
+        <img src="../../uploads/user/<% if(recipeData.avatar == ""){ %>cookerinoo.jpg<% } else { %><%= recipeData.avatar %><% } %>" alt="avatar" class="profilePic" onclick="viewProfile('<%= recipeData.uid %>')">
+      </div>
+      <div class="column is-5 userInfo">
+        <div class="columns">
+        <% if(authenticated && alreadyFollowed != true) { %>
+          <div class="column is-narrow">
+            <h1 class="title username"><%= recipeData.user %></h1>
+          </div>
+          <div class="column is-narrow">
+            <button onclick="follow('<%= recipeData.uid %>')" type="button" id="followButton" class="button is-default is-rounded has-icon-left save" name="button">
+              <span class="is-hidden-mobile icon"><i class="fas fa-heart"></i></span> 
+              <span id="followText">follow</span>
+            </button>
+          </div>
+        </div>
+        <% } else if(authenticated && alreadyFollowed) { %>
+            <div class="column is-narrow">
+              <button type="button" class="button is-default is-rounded has-icon-left saved" name="button">
+                <span class="is-hidden-mobile icon"><i class="fas fa-heart"></i></span> 
+                <span>following</span>
+              </button>
+              <h1 class="title username"><%= recipeData.user %></h1>
+
+            </div>
+          </div>
+        <% } else { %> 
+          <div class="column is-narrow">
+            <h1 class="title username"><%= recipeData.user %></h1>
+          </div>
+        </div>
+        <% }%>
+        <h2 class="subtitle userLink"><a href="<%= recipeData.link %>"><%= recipeData.link %></a></h2>
+        <p class="userBio"><%= recipeData.bio %></p>
+      </div>
+    </div>
+    </section>
+
+  <div class="columns reverse-columns" id="main">
+    <div id="image" class="column is-6">
+      <img src="../../<%= recipeData.image %>" alt="food">
+    </div>
+
+    <div id="info" class="column is-6 has-text-left">
+
+        <div id="icons" class="columns is-vcentered is-mobile">
+          <div class="column is-narrow">
+            <img src="../img/save-black.svg">
+            <p><%= recipeData.saves %></p>
+          </div>
+          <div class="column is-narrow">
+            <img src="../img/time-black.svg">
+            <p><%= recipeData.cookingTime %></p>
+          </div>
+          <div id="servings" class="column is-narrow">
+            <img src="../img/servings-black.svg">
+              <p><span><%= recipeData.servings %></span> servings</p>
+              <div class="adjust">
+                <button onclick="moreServings()" class="up"><img src="../img/up-black.svg"></button>
+                <button onclick="lessServings()" class="down"><img src="../img/down-black.svg"></button>
+              </div>
+            </button>
+          </div>
+
+        </div>
+          <p class="recipeDate">
+            <% if(recipeData.date){ %>
+              <%= recipeData.date %>
+            <% } %>
+          </p>
+          <h1 class="title is-1"><%= recipeData.dish %></h1>
+          <p class="spacing"><%= recipeData.description %></p>
+          <div id='actions' class="columns is-gapless is-mobile">
+            <% if(authenticated && alreadySaved != true) { %>
+              <div class="column">
+                <button onclick="save('<%= recipeData.id %>')" type="button" id="saveButton" class="button is-medium is-rounded has-icon-left save" name="button">
+                  <span class="is-hidden-mobile icon"><i class="fas fa-heart"></i></span> 
+                  <span id="saveText">save</span>
+                </button>
+              </div>
+            <% } else if(authenticated && alreadySaved) { %>
+              <div class="column">
+                <button type="button" class="button is-medium is-rounded has-icon-left saved" name="button">
+                  <span class="is-hidden-mobile icon"><i class="fas fa-heart"></i></span> 
+                  <span>saved</span>
+                </button>
+              </div>
+            <% } %>
+          </div>
+    </div>
+  </div>
+<section class="section">
+  <div class="columns has-text-left" id="instructions">
+
+  <div class="column is-4">
+    <h1 class="title is-3">Ingredients </h1>
+    <ul>
+    <% recipeData.ingredients.forEach((ingredients, i) => { %>
+
+      <li class="is-size-5"> - <span class="amount"><%= ingredients.amount %></span>&nbsp;<%= ingredients.measure + "  " + ingredients.ingredient %> </li>
+
+    <% }) %>
+    </ul>
+  </div>
+
+  <div class="column">
+    <h1 class="title is-3">Method</h1>
+    <ul id="instr">
+      <% recipeData.instructions.forEach((instructions, i) => { %>
+
+        <li class="is-size-5"> <%=i + 1 + ") " + instructions %> </li>
+
+      <% }) %>
+    </ul>
+  </div>
+  </div>
+  <% if(recipeData.country != ""){ %>
+    <section  class="section">
+    <div class="columns is-mobile">
+      <div class="country">
+        <img src="../uploads/flags/<%= recipeData.country %>.png" alt="" class="spacing is-hidden-mobile">
+        <h1>This recipe is from <%= recipeData.country %><% if(recipeData.region) { %><%= ", " + recipeData.region %><% } %>  
+        </h1>
+      </div>
+    </div>
+  </section>
+    <% } %>
+</div>
+</section>
+</div>
+
+  <div id="comments">
+    <section class="section">
+      <div class="has-text-centered">
+        <h1 class="title is-1">Comments</h1>
+      </div>
+      
+    <div id="commentSection">        
+    <% recipeData.comments.forEach(element => { %>
+      <div class="columns commentSpace">
+        <div class="column is-narrow avatar has-text-left is-hidden-mobile">
+          <img src="../uploads/user/<% if(element.avatar == ""){ %>cookerinoo.jpg<% } else { %><%= element.avatar %><% } %>" alt="" class="is-pulled-left">
+        </div>
+        <div class="column is-narrow">
+          <p class="username title is-5"><%= element.username %></p>
+          <p class="date subtitle"><%= element.date %></p>
+        </div>
+
+        <p class="column is-offset-1 message"><%= element.comment %></p>
+      </div>
+    <% }); %>
+    </div>
+  </section>
+
+    <% if(avatar) { %>
+    <section class="section">
+    <div class="columns">
+        <div class="column is-narrow avatar has-text-left is-hidden-mobile">
+          <img src="<% if(avatar == "../uploads/user/"){ %>../uploads/user/cookerinoo.jpg<% } else { %><%= avatar %><% } %>" alt="" class="is-pulled-left">
+        </div>
+        <div class="column">
+          <div class="field">
+            <div class="control comment-add">
+              <textarea class="textarea" placeholder="Add a comment..."></textarea>
+              <a class="button is-medium is-prim" onclick="submitComment()">Submit</a>
+            </div>
+          </div>
+
+        </div>
+
+    </div>
+    </section>
+    
+    <% } else {%>
+      <p class="please-login"><a href="/login">Login</a> to add a comment</p>
+    <% } %>
+
+  </div>
+
+</div>
+</main>
+
+<script type="text/javascript">
+function viewProfile(uid) {
+  window.location.href = "../../viewProfile/" + uid; 
+}
+
+function follow(uid) {
+  const optionsData = {
+    method: "POST",
+    headers: {
+      'content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      'uid': uid
+    })
+  };
+
+const fetchFollow = fetch('../follow/' + uid, optionsData)
+  .then(res => {
+    res.json()
+    .then(data => {
+      if(data !== "succes") {
+        return false;
+      } else {
+        var followBtn = document.getElementById("followButton"),
+        followText = document.getElementById("followText");
+
+        followBtn.className = followBtn.className.replace(/\bsave\b/g, "saved");
+        followBtn.setAttribute('onclick', '');
+
+        followText.innerHTML = "following";
+      }
+    });
+  })
+}
+
+function save(id) {
+  const optionsData = {
+    method: "POST",
+    headers: {
+      'content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      'id': id
+    })
+  };
+  const fetchRecipe = fetch('../save/' + id, optionsData)
+  .then(res => {
+    res.json()
+    .then(data => {
+      if(data !== "succes") {
+        return false;
+      } else {
+        var saveBtn = document.getElementById("saveButton"),
+        saveText = document.getElementById("saveText");
+
+        saveBtn.className = saveBtn.className.replace(/\bsave\b/g, "saved");
+        saveBtn.setAttribute('onclick', '');
+
+        saveText.innerHTML = "saved"
+
+
+      }
+    });
+  })
+}
+
+function editRecipe() {
+  window.location.href = "/edit/<%= recipeData.id %>" 
+}
+
+function save(id) {
+  const optionsData = {
+    method: "POST",
+    headers: {
+      'content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      'id': id
+    })
+  };
+
+const fetchRecipe = fetch('../save/' + id, optionsData)
+  .then(res => {
+    res.json()
+    .then(data => {
+      if(data !== "succes") {
+        return false;
+      } else {
+        var saveBtn = document.getElementById("saveButton"),
+        saveText = document.getElementById("saveText");
+
+        saveBtn.className = saveBtn.className.replace(/\bsave\b/g, "saved");
+        saveBtn.setAttribute('onclick', '');
+
+        saveText.innerHTML = "saved"
+
+
+      }
+    });
+  })
+}
+  <% if(avatar) { %>
+
+  function submitComment() {
+    var comment = document.querySelector('.comment-add textarea').value;
+    var today = new Date();
+
+    var day = today.getDate();
+    var month = today.getMonth() + 1;
+    var year = today.getFullYear();
+
+    if (day < 10) {
+      day = '0' + day
+    }
+    if (month < 10) {
+      month = '0' + month
+    }
+
+    var date = day + "/" + month + "/" + year;
+    var data = {
+      'uid': '<%= uid %>',
+      'date': date,
+      'comment': comment
+    }
+    const optionsData = {
+    method: "POST",
+    headers: {
+      'content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  };
+
+  const fetchComment = fetch('/comment/<%= recipeData.id %>', optionsData)
+  .then(function() {
+    location.reload();
+
+  })
+  }
+
+  <% } %>
+
+  function moreServings() {
+    var servingsC = document.querySelector('#servings p span'),
+    servings = servingsC.innerHTML,
+    amounts = document.querySelectorAll('.amount'),
+    newServings = Number(servings) + 1;
+
+    amounts.forEach(element => {
+      if(element.innerHTML != "") {
+        var amount = Number(element.innerHTML);
+        var newAmount = (amount / servings) * newServings;
+        element.innerHTML = parseFloat(newAmount.toFixed(3));     
+      }
+
+    });
+
+    servingsC.innerHTML = newServings;
+  }
+
+  function lessServings() {
+    var servingsC = document.querySelector('#servings p span'),
+    servings = servingsC.innerHTML,
+    amounts = document.querySelectorAll('.amount');
+
+    if(Number(servings) !== 1) {
+      var newServings = Number(servings) - 1;
+
+      amounts.forEach(element => {
+        if(element.innerHTML != "") {
+          var amount = Number(element.innerHTML);
+          var newAmount = (amount / servings) * newServings;
+          element.innerHTML = parseFloat(newAmount.toFixed(3));     
+        }      
+      });
+      servingsC.innerHTML = newServings;
+
+    }
+  }
+</script>
+
+<%- include("partials/footer"); -%>

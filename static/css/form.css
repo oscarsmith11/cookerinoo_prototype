@@ -1,0 +1,25 @@
+main {
+  padding-top: 100px;
+}
+
+#next {
+  margin-top: 8px;
+}
+
+#ingredients input {
+  width: 100px;
+  margin: 0 10px 8px 0;
+}
+
+#ingredients .select {
+  margin-right: 10px;
+}
+
+.changeC {
+  display: inline;
+}
+
+#ingredientsTitle input {
+  width: 100px;
+  display: inline;
+}

@@ -1,0 +1,28 @@
+[debug] [2020-01-08T14:37:08.603Z] ----------------------------------------------------------------------
+[debug] [2020-01-08T14:37:08.606Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Oscar\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js application-defaul login
+[debug] [2020-01-08T14:37:08.606Z] CLI Version:   7.11.0
+[debug] [2020-01-08T14:37:08.606Z] Platform:      win32
+[debug] [2020-01-08T14:37:08.606Z] Node Version:  v10.15.3
+[debug] [2020-01-08T14:37:08.607Z] Time:          Wed Jan 08 2020 15:37:08 GMT+0100 (Central European Standard Time)
+[debug] [2020-01-08T14:37:08.607Z] ----------------------------------------------------------------------
+[debug] [2020-01-08T14:37:08.607Z] 
+[error] Error: [object Object] is not a Firebase command
+[debug] [2020-01-08T14:37:08.614Z] TypeError: str.toLowerCase is not a function
+    at didYouMean (C:\Users\Oscar\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\didyoumean\didYouMean-1.2.1.js:147:48)
+    at suggestCommands (C:\Users\Oscar\AppData\Roaming\npm\node_modules\firebase-tools\lib\index.js:28:22)
+    at Command.<anonymous> (C:\Users\Oscar\AppData\Roaming\npm\node_modules\firebase-tools\lib\index.js:57:14)
+    at Command.listener (C:\Users\Oscar\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\commander\index.js:370:29)
+    at Command.emit (events.js:189:13)
+    at Command.EventEmitter.emit (domain.js:441:20)
+    at Command.parseArgs (C:\Users\Oscar\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\commander\index.js:894:12)
+    at Command.parse (C:\Users\Oscar\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\commander\index.js:642:21)
+    at Object.<anonymous> (C:\Users\Oscar\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js:98:22)
+    at Module._compile (internal/modules/cjs/loader.js:701:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:712:10)
+    at Module.load (internal/modules/cjs/loader.js:600:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:539:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:531:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:754:12)
+    at startup (internal/bootstrap/node.js:283:19)
+[error] 
+[error] Error: An unexpected error has occurred.

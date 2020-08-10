@@ -1,0 +1,70 @@
+<%- include("partials/header"); -%>
+<link rel="stylesheet" href="/css/form.css">
+<% if(authenticated) { %>
+<%- include("partials/navUser"); -%>
+<% } else { %>
+<%- include("partials/nav") -%>
+<% } %>
+
+<main>
+  <div id="form" class="container">
+    <h1 id="title" class="title">Share your recipe</h1>
+
+    <h2 id="actions" class="subtitle">What's the name of your dish?</h2>
+    <div id="dishTitle">
+      <div class="changeC"></div>
+      <b></b>
+      <h2 id="dish" class=""></h2>
+    </div>
+
+
+    <div id="image"></div>
+
+    <div id="imageTitle">
+      <div class="changeC"></div>
+      <b></b>
+      <p id="imagePath"></p>
+    </div>
+
+    <div id="servingsTitle">
+      <div class="changeC"></div>
+      <b></b>
+      <p id="servings"></p>
+    </div>
+
+    <div id="descriptionTitle">
+      <div class="changeC"></div>
+      <b></b>
+      <p id="description"></p>
+    </div>
+
+    <div id="ingredientsTitle">
+      <div class="changeC"></div>
+      <b></b>
+      <div id="ingredients"></div>
+    </div>
+
+    <div id="methodTitle">
+      <div class="changeC"></div>
+      <b></b>
+      <div id="instructions"></div>
+    </div>
+
+
+    <div id="inputs">
+      <input class="input" type="text" id="input">
+
+      <button id="next" class="button" onclick="nextThing('')">next</button>
+    </div>
+
+    <div id="invForm">
+
+    </div>
+  </div>
+</main>
+
+<script src="js/createRecipe.js"></script>
+<script src="js/editInForm.js"></script>
+
+
+<%- include("partials/footer"); -%>

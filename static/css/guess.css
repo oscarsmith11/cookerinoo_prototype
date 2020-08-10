@@ -1,0 +1,13 @@
+main {
+  padding-top: 100px;
+}
+
+#guessImage {
+  height: 500px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+#guessIngredients {
+  padding-top: 100px;
+}

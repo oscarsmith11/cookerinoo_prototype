@@ -1,0 +1,113 @@
+<%- include("partials/header"); -%>
+<link rel="stylesheet" href="/css/profile.css">
+<% if(authenticated) { %>
+<%- include("partials/navUser"); -%>
+<% } else { %>
+<%- include("partials/nav") -%>
+<% } %>
+
+<main class="container">
+  
+<section class="section">
+<div class="columns is-centered is-vcentered">
+  <div class="column is-narrow">
+    <img src="../../uploads/user/<% if(avatar == ""){ %>cookerinoo.jpg<% } else { %><%= avatar %><% } %>" alt="avatar" class="profilePic">  
+  </div>
+  <div class="column is-5 userInfo">
+
+    <h1 class="title username"><%= username %></h1>
+    <h2 class="subtitle userLink"><a href="<%= link %>"><%= link %></a></h2>
+    <p class="userBio"><%= bio %></p>
+  </div>
+</div>
+</section>
+<div class="columns has-text-centered">
+  <div class="column">
+    <a href="#" class="fans" id="viewFollowers"><%= fanCount %> followers</a>
+    <a href="#" class="following" id="viewFollowing">view following</a>
+
+    <% if(authenticated && alreadyFollowed == false) { %>
+    <a onclick="follow('<%= id %>')" id="followButton" class="button is-default is-rounded has-icon-left save">
+      <span class="is-hidden-mobile icon"><i class="fas fa-heart"></i></span> 
+      <span id="followText">follow</span>
+    </a>
+    <% } %>
+
+  </div>
+</div>
+
+<section class="section has-text-centered posts">
+  <h1 class="title">Posts</h1>
+  <% userPosts.forEach((item, i) => { %>
+    <%
+        var counter = i + 1;
+        if(i % 4 == 0 || i == 0) {
+    %>
+      <div class="columns postLine  has-text-centered">
+      <% } %>
+        <div class="column is-3 is-12-mobile userUploads">
+          <img src= <%= "../" + item.image %> onclick="recipeView('<%= item.id %>')" alt="Image">
+          <h1 class="title is-4 is-3-tablet"> <%= item.dish %> </h1>
+          <button type="button" onclick="save('<%= item.id %>')" class="button is-black is-rounded">
+            <span class="icon">
+              <i class="fas fa-heart"></i>             
+            </span>
+            <span>Save</span>
+          </button>
+        </div>
+    <%
+      if(counter % 4 == 0) {
+    %>
+    </div>
+  <% }}); %>
+</section>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <div class="modal-content columns">
+
+      <div class="modal-body column">
+        <span class="close">&times;</span>
+
+        <h1 class="title is-3">Fans (<%= fanCount %>)</h1>
+        <% fans.forEach(element => { %>
+          <p><a href="../../viewProfile/<%= element[0] %>"><%= element[1] %></a></p>
+        <% }); %>
+      </div>
+    </div>
+  </div>
+  <!-- fans modal -->
+  <div id="myModal" class="modal">
+    <div class="modal-content columns">
+
+      <div class="modal-body column">
+        <span class="close" id="close">&times;</span>
+
+        <h1 class="title is-3">Fans (<%= fanCount %>)</h1>
+        <% fans.forEach(element => { %>
+          <p><a href="../../viewProfile/<%= element[0] %>"><%= element[1] %></a></p>
+        <% }); %>
+      </div>
+    </div>
+  </div>
+
+  <!-- following modal -->
+  <div id="followingModal" class="modal">
+    <div class="modal-content columns">
+
+      <div class="modal-body column">
+        <span class="close" id="closeFollowing">&times;</span>
+
+        <h1 class="title is-3">Following</h1>
+        <% following.forEach(element => { %>
+          <p><a href="../../viewProfile/<%= element[0] %>"><%= element[1] %></a></p>
+        <% }); %>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="../js/viewProfileClient.js"></script>
+<script src="../js/profileModal.js"></script>
+
+<%- include("partials/footer"); -%>

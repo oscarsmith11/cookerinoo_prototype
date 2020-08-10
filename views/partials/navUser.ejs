@@ -1,0 +1,41 @@
+</head>
+<body class="is-fullheight">
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a href="/" class="navbar-item"></a>
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+    
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="../../explore">
+            Explore
+          </a>
+    
+          <a class="navbar-item" href="../../share">
+            Share
+          </a>
+
+          <a class="navbar-item" href="<%= "../../profile/" + uid %>">
+            Profile
+          </a>
+
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-cdark is-medium is-rounded" href='/logout'>
+                <strong>LOGOUT</strong>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+     </div> 
+  </nav>            

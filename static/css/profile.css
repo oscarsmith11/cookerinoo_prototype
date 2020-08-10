@@ -1,0 +1,215 @@
+#newProfilePic {
+  display: none;
+}
+
+.profilePic {
+  object-fit: cover;
+  width: 170px;
+  height:170px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.profilePic:hover {
+  cursor: pointer;
+}
+
+.cookerinoo {
+  color: white;
+  font-weight: 700;
+  background-color: #FF931E;
+}
+
+.saved:focus {
+  border-color: #2D3047;
+  color: #2D3047;
+  opacity: 0.8;
+}
+
+.saved:hover {
+  cursor: default;
+  border-color: #2D3047;
+  color: #2D3047;
+}
+
+.save:focus {
+  background-color: #2D3047;
+  color: #FDFFFC;
+  opacity: 0.9;
+}
+
+.userInfo .title {
+  margin-top: 10px;
+}
+
+.save:hover {
+  background-color: #2D3047;
+  color: #FDFFFC;
+  opacity: 0.9;
+}
+
+.saved {
+  background-color: transparent;
+  color: #2D3047;
+  border-color: #2D3047;
+  border-width: 2px;
+}
+
+.save {
+  background-color: #2D3047;
+  color: #FDFFFC;
+  border: none;
+}
+
+
+
+.fans {
+  border: 1px solid #A06CD5;
+  border-radius: 25px;
+  color: #A06CD5;
+  padding: 13px 27px;
+}
+
+.following {
+  margin-left: 10px;
+}
+
+.editLink {
+  margin-left: 10px;
+  text-decoration: underline;
+  color: #C8B8DB;;
+}
+
+.margin-top {
+  margin-top: 5px;
+}
+
+.userInfo h1 {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.userInfo h2 a {
+  text-transform: lowercase;
+  font-style: italic;
+  font-size: 17px;
+  color: #000000;
+}
+
+.posts h1 {
+  text-transform: uppercase;
+  font-size: 40px;
+}
+
+.postLine {
+  margin-top: 28px;
+}
+
+.marginBottom {
+  padding-bottom: 18px;
+}
+
+
+.userUploads {
+  height: 350px;
+  background-color: #FFFFFF;
+  box-shadow: 0 1px 5px 2px #eaeaea;
+  cursor:pointer;
+  margin-top: 18px;
+}
+
+.userUploads button {
+  margin-bottom: 15px;
+}
+
+.userUploads h1, p {
+  margin-left: 5px;
+}
+
+.userUploads img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+#profilePic img {
+  display: block;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  height: 360px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  display: block;
+  color: #000000;
+  display: inline;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 20px 40px 0px 40px;
+}
+
+.modal-body h1{
+  margin-top: 50px;
+}
+
+.modal-body button {
+  margin-top: 18px;
+  text-align: center;
+  margin-left: 5px;
+  text-transform: uppercase;
+}
+
+.modal-body input {
+  display: block;
+  margin-bottom: 8px;
+}

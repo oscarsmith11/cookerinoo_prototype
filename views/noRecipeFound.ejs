@@ -1,0 +1,64 @@
+<%- include("partials/header"); -%>
+<link rel="stylesheet" href="../css/landing.css">
+<% if(authenticated) { %>
+<%- include("partials/navUser"); -%>
+<% } else { %>
+<%- include("partials/nav") -%>
+<% } %>
+<main class="">
+  <div class="container">
+  <div class="hero block box">
+    <div class="recipe">
+    <h1 class="title is-2">No Recipe Found</h1>
+
+    <div class="columns is-vcentered pannel">
+      <div class="column is-pulled-left has-text-left is-3 is-offset-1">
+        <div class="arrowCLeft">
+          <button class="button is-large" onclick="loadPrevious()">
+            <span class="icon is-medium">
+              <i><img class="" src="../img/left.svg" alt=""></i>
+            </span>
+            <span>Previous</span>
+          </button>
+        </div>
+      </div>
+      <div class="column is-2 is-offset-1 cursor has-text-centered">
+        <div id="filter">
+          <h1>keyword:</h1>
+          <p id="filterIng"><%= keyword %></p>
+        </div>
+      </div>
+    </div> 
+  </div>
+  </div> 
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+  
+        <div class="modal-body">
+          <span class="close">&times;</span>
+          <h1 class="title is-2 is-secC">Enter your keyword</h1>
+          <h2 class="subtitle is-5"><a href="explore">Need some inspiration?</a></h2>
+          <input type="text" name="" placeholder="eg: vegetarian" class="input is-large" id="keywordInput">
+          <button type="button" name="button" class="button is-prim is-medium" onclick="filter()">search</button>
+  
+      </div>
+  
+    </div>
+  </div>
+  </div>
+  </main>
+<script>
+  function loadPrevious() {
+  var getFilter = document.getElementById("filterIng").innerHTML.toLowerCase();
+    window.location = '../previous'
+  }
+</script>
+<script src="../js/landing.js"></script>
+<script src="../js/modal.js"></script>
+
+
+<%- include("partials/footer"); -%>

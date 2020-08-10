@@ -1,0 +1,88 @@
+body {
+  height: 100vh;
+  /* Location of the image */
+  background-image: url(../img/food.png);
+  
+  /* Background image is centered vertically and horizontally at all times */
+  background-position: center center;
+  
+  /* Background image doesn't tile */
+  background-repeat: no-repeat;
+  
+  /* Background image is fixed in the viewport so that it doesn't move when 
+     the content's height is greater than the image's height */
+  background-attachment: fixed;
+  
+  /* This is what makes the background image rescale based
+     on the container's size */
+  background-size: cover;
+  
+  /* Set a background color that will be displayed
+     while the background image is loading */
+  background-color: #464646;
+}
+
+.trends {
+   margin-top: 30px;
+}
+
+.underline {
+   border-bottom: 0.2px solid #707070;
+}
+
+.favoritesC a {
+   padding: 20px;
+   display: block;
+   color: #000000;
+   font-family: Open Sans;
+}
+
+.favoritesC .count {
+   margin-right: 50px;
+}
+
+.favoritesC .keyword {
+   font-size: 23px;
+   font-weight: 600;
+}
+
+.popularsC {
+   height: 500px;
+	width: 65px;
+	overflow-y: scroll;
+}
+
+.popularsC::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(95, 93, 93, 0.103);
+	background-color: #F5F5F5;
+}
+
+.popularsC::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+.popularsC::-webkit-scrollbar-thumb
+{
+	background-color: #AEBCBF;
+}
+
+
+.popularsC a {
+   padding: 20px;
+   display: block;
+   color: #000000;
+   font-family: Open Sans;
+}
+
+.popularsC .count {
+   margin-right: 50px;
+}
+
+.popularsC .keyword {
+   font-size: 23px;
+   font-weight: 600;
+}
+

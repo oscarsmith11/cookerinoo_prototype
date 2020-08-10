@@ -1,0 +1,292 @@
+body {
+  background-color: #C8B8DB;;
+}
+
+#newProfilePic {
+  display: none;
+}
+
+.profilePic {
+  object-fit: cover;
+  width: 170px;
+  height:170px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.profilePic:hover {
+  cursor: pointer;
+}
+
+.box {
+  padding: 0;
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+
+.box:not(:last-child) {
+  margin-bottom: 0;
+}
+
+.recipe {
+  background-color: #FDFFFC;
+  color: #000000;
+  text-align: center;
+  padding: 30px;
+  width: 100%;
+}
+
+.recipe h1 {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #000000;
+  font-family: Open Sans;
+}
+
+.user {
+  text-align: center;
+  height: 130px;
+  width: 440px;
+  margin-left: 2px;
+  padding-bottom: 10px;
+}
+
+.user:hover {
+  cursor: pointer;
+}
+
+.user h1 {
+  font-size: 25px;
+}
+
+.user img {
+  display: inline;
+  object-fit: cover;
+  margin-left: 10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#main {
+  margin-top: 10px;
+}
+
+#image img {
+  height: 380px;
+  width: 140%;
+  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+
+#icons img {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  height: 40px;
+}
+
+.up img {
+  height: 10px !important;
+}
+
+.down img {
+  height: 10px !important;
+}
+
+#icons p {
+  margin-left: 10px;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  font-weight: 700;
+}
+
+#servings div {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+#icons .button {
+  background-color: transparent;
+  border: none;
+}
+
+#servings button {
+  background: transparent;
+  border: none;
+  display: block;
+}
+
+#servings button:hover {
+  cursor: pointer;
+}
+
+.adjust {
+  margin-left: 10px;
+}
+
+#servings .up {
+  margin-top: 15px;
+}
+
+#servings .down {
+  margin-top: 20px;
+}
+
+.spacing {
+  margin-bottom: 15px;
+}
+
+#actions button {
+  font-family: Open Sans;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+button span {
+  margin-right: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+}
+
+.saved:focus {
+  border-color: #2D3047;
+  color: #2D3047;
+  opacity: 0.8;
+}
+
+.saved:hover {
+  cursor: default;
+  border-color: #2D3047;
+  color: #2D3047;
+}
+
+.save:focus {
+  background-color: #2D3047;
+  color: #FDFFFC;
+  opacity: 0.9;
+}
+
+.userInfo .title {
+  margin-top: 10px;
+}
+
+.save:hover {
+  background-color: #2D3047;
+  color: #FDFFFC;
+  opacity: 0.9;
+}
+
+.saved {
+  background-color: transparent;
+  color: #2D3047;
+  border-color: #2D3047;
+  border-width: 2px;
+}
+
+.save {
+  background-color: #2D3047;
+  color: #FDFFFC;
+  border: none;
+}
+
+.country {
+  margin-top: 50px;
+  margin-left: 2px;
+  height: 110px;
+  line-height: 110px;
+  border: 2px solid #2D3047;
+  background-color: #2D3047;
+  padding: 0px 50px;
+  border-radius: 50px;
+  margin-bottom: 30px;
+}
+
+.country h1 {
+  color: #FDFFFC;
+}
+
+.country img {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+.country h1 {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 15px;
+}
+
+#commentSection {
+  padding-top: 50px;
+}
+
+#comments {
+  background-color: #2D3047;
+  padding: 40px 50px;
+}
+
+#comments img {
+  display: inline;
+  object-fit: cover;
+  margin-left: 10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+#comments .username {
+  color: #FDFFFC;;
+}
+
+#comments .date {
+  font-size: 12px;
+  color: #FDFFFC;
+}
+
+#comments textarea {
+  margin-bottom: 5px;
+}
+
+#comments h1 {
+  text-transform: uppercase;
+  font-family: Open Sans;
+  font-weight: 600;
+  margin-bottom: 50px;
+  color: #FDFFFC;
+}
+
+.commentSpace {
+  margin-bottom: 50px;
+  padding-bottom: 50px;
+}
+
+#put-comment a {
+  background-color: #A06CD5;
+  border: none;
+}
+
+.commentsTitle {
+  padding-bottom: 40px;
+}
+
+.comment-add .button {
+  margin-top: 10px;
+  border: none;
+}
+
+.please-login {
+  color: #FDFFFC;
+}
+
+.please-login a {
+  color: #A06CD5;
+  text-decoration: underline;
+}

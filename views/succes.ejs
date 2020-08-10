@@ -1,0 +1,10 @@
+<%- include("partials/header"); -%>
+<% if(authenticated) { %>
+<%- include("partials/navUser"); -%>
+<% } else { %>
+<%- include("partials/nav") -%>
+<% } %>
+
+<h1 class="title">Thanks for sharing :)</h1>
+
+<%- include("partials/footer"); -%>

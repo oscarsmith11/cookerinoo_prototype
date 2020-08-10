@@ -1,0 +1,384 @@
+font-family: 'Open Sans', sans-serif;
+
+
+* {
+  height: 100vh;
+  overflow: hidden; /* Hide scrollbars */
+  background-color: #C8B8DB;
+}
+
+
+.transition-fade {
+  transition: 0.4s;
+  opacity: 1;
+}
+
+html.is-animating .transition-fade {
+  opacity: 0;
+}
+
+body {
+  height: 100vh;
+  background-color: #C8B8DB;
+}
+
+.spacing {
+  margin-bottom: 30px;
+}
+
+.is-fullheight {
+  height: 100vh;
+}
+
+main {
+  overflow: hidden; /* Hide scrollbars */
+}
+
+.box {
+  padding: 0;
+  margin-top: 20px;
+}
+
+.hero {
+  width: 600px;
+}
+
+.recipe {
+  background-color: #FDFFFC;
+  color: #2D3047;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.margin-bottom {
+  padding-top: 40px;
+  padding-bottom: 30px;
+}
+
+
+.recipe h1 {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #2D3047;
+  font-family: Open Sans;
+}
+
+@media(min-width: 1216px) {
+  #actions button {
+    margin: 0px 15px;
+  }
+}
+
+@media(max-width: 768px) { /* <== You can change this break point as per your  needs */
+  .reverse-columns {
+    flex-direction: column-reverse;
+    display: flex;
+  }
+}
+
+.recipeImg {
+  width: 100%;
+  height: 100%;
+  margin-left: 50px;
+}
+
+.recipeImg img {
+  height: 380px;
+  width: 100%;
+  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+
+#guessDish {
+  color: #2D3047;
+  font-size: 41px;
+  letter-spacing: 0.5px;
+}
+
+#info {
+  margin-top: 28px;
+}
+
+.titleC h1 {
+  font-size: 30px;
+}
+
+.titleC p {
+  font-style: italic;
+}
+
+#actions button {
+  font-family: Open Sans;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+#actions #full-recipe  {
+  background-color: transparent;
+  color: #2D3047;
+  border-color: #2D3047;
+  border-width: 2px;
+}
+
+#action .save:focus {
+  border-color: #2D3047;
+  color: #2D3047;
+  opacity: 0.8;
+}
+
+#actions .save:hover {
+  border-color: #2D3047;
+  color: #2D3047;
+  opacity: 0.8;
+}
+
+#actions .saved:focus {
+  background-color: #2D3047;
+  color: #FDFFFC;
+  opacity: 0.9;
+}
+
+#actions .saved:hover {
+  background-color: #2D3047;
+  color: #FDFFFC;
+  opacity: 0.9;
+}
+
+.save {
+  background-color: transparent;
+  color: #2D3047;
+  border-color: #2D3047;
+  border-width: 2px;
+}
+
+.saved {
+  background-color: #2D3047;
+  color: #FDFFFC;
+  border: none;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+button span {
+  margin-right: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+}
+
+
+.arrowCLeft .button {
+  background-color: transparent;
+  border: none;
+  color: #FFFFFF;
+}
+
+.arrowCLeft .button:hover {
+  opacity: 0.8;
+}
+
+.arrowCLeft button span {
+  text-transform: lowercase;
+}
+
+
+.arrowCRight .button {
+  font-weight: bold;
+  background-color: transparent;
+  border-width: 0;
+  color: #FFFFFF;
+  background-color: #A06CD5;
+}
+
+.arrowCRight .button:hover {
+  opacity: 0.9;
+}
+
+.pannel {
+  height: 100px;
+  background-color: #2D3047;
+}
+
+.pannel.columns {
+  margin-left: 0;
+  margin-bottom: 0;
+  margin-right: 0;
+}
+
+#filter {
+  text-align: center;
+}
+
+#filter h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #FFFFFF;;
+}
+
+#filter p {
+  font-style: italic;
+  color: #FFFFFF;;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  height: 360px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  display: block;
+  color: #000000;
+  display: inline;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 20px 40px 0px 40px;
+  text-align: center;
+}
+
+.modal-body h1{
+  margin-top: 50px;
+  text-align: center;
+}
+
+.modal-body button {
+  margin-top: 18px;
+  text-align: center;
+  margin-left: 5px;
+  text-transform: uppercase;
+}
+
+.modal-body input {
+  display: block;
+  margin-bottom: 8px;
+}
+
+@media(max-width: 1024px) {
+  .recipeImg {
+    margin-left: 0px;
+  }
+
+  #actions {
+    margin-bottom: 20px;
+  }
+
+  #actions .button {
+    margin: 15px 15px;
+  }
+}
+
+@media(max-width: 767px) { 
+  .recipe {
+    padding: 0;
+  }
+
+  #info {
+    margin-top: 18px;
+  }
+
+  .box {
+    margin-top: 0px;
+  }
+
+  .spacing {
+    margin-bottom: 15px;
+  }
+
+  .button.is-medium {
+    font-size: 1rem;
+  }
+
+  #full-recipe {
+    margin-left: 25px;
+  }
+
+  .recipeImg img {
+    height: 200px;
+  }
+
+  .button.is-large {
+    font-size: 1rem;
+  }
+
+  button span {
+    margin-right: 0px;
+  }
+
+  #filter {
+    padding: 10px;
+  }
+
+  #filter h1 {
+    font-weight: 700;
+  }
+
+  .recipe {
+    height: 100vh;
+  }
+}
+
+@media(min-width: 1216px) { 
+  #full-recipe {
+
+  }
+
+  .save {
+    float: left;
+  }
+  
+  .saved {
+    float: left;
+  }
+}
+
+

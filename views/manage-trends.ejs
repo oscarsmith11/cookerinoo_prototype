@@ -1,0 +1,48 @@
+<%- include("partials/header"); -%>
+<link rel="stylesheet" href="/css/manageTrends.css">
+<script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+<% if(authenticated) { %>
+<%- include("partials/navUser"); -%>
+<% } else { %>
+<%- include("partials/nav") -%>
+<% } %>
+
+<main>
+  <h1 class="title">All Trends</h1>
+  <% keywords.forEach((item, i) => { %>
+
+  <button type="button" class="button fill" draggable="true" name="button">#<span class="keyword"><%= item.keyword %></span><span class="count"><%= item.count %></span> &nbsp; recipes </button>
+
+  <% }); console.log(populars); %>
+  <div id="popular">
+    <h1 class="title">Most popular</h1>
+    <button type="button" name="button" class="change button is-primary" onclick="fetchPopulars()">change</button>
+    <div class="popularC">
+      <% for (var i = 0; i < 20; i++) { %>
+      <% if(typeof populars[i] === 'undefined') { %>
+        <button type="button" class="button empty" name="button"></button>
+      <% } else { %>
+        <button type="button" class="button empty ocRed" name="button">#<span class="keyword"><%= populars[i].keyword %></span><span class="count"><%= populars[i].count %></span> &nbsp; recipes </button>
+      <% }} %>
+    </div>
+  </div>
+
+  <div id="favorites">
+    <h1 class="title">Our favorites</h1>
+    <button type="button" name="button" class="change button is-primary" onclick="fetchFavorites()">change</button>
+    <div class="favoritesC">
+      <% for (var i = 0; i < 5; i++) { %>
+        <% if(typeof favorites[i] === 'undefined') { %>
+          <button type="button" class="button empty" name="button"></button>
+        <% } else { %>
+          <button type="button" class="button empty ocRed" name="button">#<span class="keyword"><%= favorites[i].keyword %></span><span class="count"><%= favorites[i].count %></span> &nbsp; recipes </button>
+        <% }} %>
+    </div>
+  </div>
+
+</main>
+
+<script src="/js/manageTrendsClient.js">
+
+</script>
+<%- include("partials/footer"); -%>

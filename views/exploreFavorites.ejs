@@ -1,0 +1,31 @@
+<%- include("partials/header"); -%>
+<link rel="stylesheet" href="/css/explore.css">
+
+<% if(authenticated) { %>
+<%- include("partials/navUser"); -%>
+<% } else { %>
+<%- include("partials/nav") -%>
+<% } %>
+
+
+<main class="container trends">
+  <div class="columns is-centered has-text-centered is-mobile">
+    <div class="column">   
+      <div class='select is-large'><select class="measure" onchange="switchTrend(this)"><option value='favorites' selected>Featured trends</option><option value='top'>Top trends</option></select></div>
+    </div> 
+  </div> 
+  <div class="columns is-centered is-gapless">
+    <div class="favoritesC box column is-8">
+        <% favorites.forEach((item, i, array) => { %>
+          <a onclick="redirectFilter(this)" <% if(i != array.length - 1){%>class="underline"<%} %>><span class="count"><%= i + 1 %></span>#<span class="keyword"><%= item.keyword %></span><span class="recipe-count is-pulled-right"><%= item.count %>&nbsp; recipes</span></a>
+        <% }); %>
+    </div>
+  </div>
+
+
+</main>
+
+<script src="/js/trendsClient.js"></script>
+
+
+<%- include("partials/footer"); -%>

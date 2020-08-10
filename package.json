@@ -1,0 +1,35 @@
+{
+  "name": "cookerinoo",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "8"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie": "^0.4.1",
+    "core-util-is": "^1.0.2",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "firebase": "^7.6.1",
+    "firebase-admin": "^8.6.0",
+    "firebase-functions": "^3.3.0",
+    "multer": "^1.4.2",
+    "swup": "^2.0.9",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.1.6"
+  },
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Oscar Smith",
+  "license": "ISC"
+}

@@ -1,0 +1,34 @@
+main button {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.keyword {
+  font-weight: bold;
+}
+
+.change {
+  margin: 10px 0px;
+  display: block;
+}
+
+.count {
+  padding-left: 20px;
+}
+
+.empty {
+  min-width: 130px;
+}
+
+.hold {
+  border: solid #ccc 4px;
+}
+
+.hovered {
+  background-color: #f4f4f4;
+  border-style: dashed;
+}
+
+.invisible {
+  opacity: 0.5;
+}

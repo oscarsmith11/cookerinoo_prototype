@@ -1,0 +1,127 @@
+<%- include("partials/header"); -%>
+<link rel="stylesheet" href="/css/landing.css">
+<% if(authenticated) { %>
+<%- include("partials/navUser"); -%>
+<% } else { %>
+<%- include("partials/nav") -%>
+<% } %>
+
+<%
+String.prototype.trunc = function( n, useWordBoundary ){
+         if (this.length <= n) { return this; }
+         var subString = this.substr(0, n-1);
+         return (useWordBoundary
+            ? subString.substr(0, subString.lastIndexOf(' '))
+            : subString) + " ...";
+      };
+var recipeObj = randomRecipe;
+%>
+
+
+<main class="container">
+  <div class="has-text-centered swipe-content">
+  <div class="columns is-centered margin-top">
+    <div class="column is-12 is-centered">
+      <div class="box">
+        <div class="recipe">  
+          <div class="columns is-gapless">
+            <div class="column is-12">
+              <div class="columns is-gapless reverse-columns is-vcentered margin-bottom">
+                <div class="column is-6">
+                  <div class="recipeImg">
+                    <img src="../<%= randomRecipe.image %>" alt="">
+                  </div>
+                </div>
+                <div class="column is-6" id="info">
+                  <div class="titleC spacing" >
+                    <h1 id="guessDish"><%= randomRecipe.dish %></h1>
+                    <p>Posted by: <%= randomRecipe.user %></p>
+                  </div>
+                  <div class="spacing">
+                    <p id="guessDescription">
+                      <%= randomRecipe.description.trunc(120, true) %>
+                    </p>
+                  </div>
+      
+                  <div id='actions' class="columns  is-gapless is-mobile">
+                    <div class="column <% if(authenticated) { %>has-text-right<% }%>">
+                      <button onclick="goToRecipe('<%= randomRecipe.id %>')" type="button" id="full-recipe" class="button is-medium is-rounded is-small-mobile " name="button">view recipe</button>
+                    </div>
+                      <% if(authenticated && alreadySaved != true) { %>
+                        <div class="column">
+      
+                        <button onclick="save('<%= randomRecipe.id %>')" type="button" id="saveButton" class="button is-medium is-rounded has-icon-left save" name="button">
+                          <span class="is-hidden-mobile"><i class="fas fa-heart"></i></span> 
+                          <span id="saveText">save</span>
+                        </button>
+                        </div>
+      
+                      <% } else if(authenticated && alreadySaved) { %>
+                        <div class="column">
+                          <button type="button" class="button is-medium is-rounded has-icon-left saved" name="button">
+                            <span class="is-hidden-mobile"><i class="fas fa-heart"></i></span> 
+                            <span>saved</span>
+                          </button>
+                          </div>
+                      <% } %>
+                  </div>
+                </div> 
+              </div>
+            </div>
+      
+          </div>
+      
+          <div class="columns is-vcentered is-centered pannel is-mobile">
+            <div class="column is-pulled-left has-text-left is-4">
+              <div class="arrowCLeft">
+                <button class="button is-large" onclick="loadPrevious()">
+                  <span>Previous</span>
+                </button>
+              </div>
+            </div>
+            <div class="column is-4 cursor has-text-centered">
+              <div id="filter">
+                <h1>keyword:</h1>
+                <p id="filterIng">anything</p>
+              </div>
+            </div>
+      
+            <div class="column is-4 cursor arrow">
+              <div class="arrowCRight is-pulled-right	">
+                <a href="" id="next"></a>
+                <button class="button is-large" onclick="loadRandom()">
+                  <span>Next</span>
+                  <span class="icon is-medium">
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                  </span>
+                </button>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div> 
+    </div>
+  </div>
+  
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content columns">
+
+      <div class="modal-body column">
+        <span class="close">&times;</span>
+        <h1 class="title is-2 is-secC">Enter your keyword</h1>
+        <h2 class="subtitle is-5"><a href="explore">Need some inspiration?</a></h2>
+        <input type="text" name="" placeholder="eg: vegetarian" class="input is-large" id="keywordInput">
+        <button type="button" name="button" class="button is-prim is-medium" onclick="filter()">search</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<script src="../js/guess.js"></script>
+<script src="../js/modal.js"></script>
+
+<%- include("partials/footer"); -%>

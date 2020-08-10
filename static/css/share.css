@@ -1,0 +1,96 @@
+::placeholder {
+  color: #102618;
+}
+
+body {
+  font-family: Open Sans;
+}
+
+h1 {
+  font-size: 35px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 35px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.form {
+  margin-top: 30px;
+}
+
+#kind {
+  margin-bottom: 60px;
+}
+
+.imgUpload {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  background-color: #102618;
+}
+
+.imgUpload img {
+  height: 340px;
+  width: 100%;
+  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.uploadFile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.uploadFile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    display: inline-block;
+}
+
+.uploadFile + label {
+	cursor: pointer; /* "hand" cursor */
+}
+
+.uploadFile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+#uploadLabel {
+  padding-bottom: 5px;
+}
+
+.add {
+  margin-top: 10px;
+}
+
+
+.postBtn {
+  display: block;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+  border: 2px solid #102618;
+}
+
+@media(max-width: 768px) {
+  .ingredientC {
+    padding: 20px 0px;
+    border-bottom: 1px solid #D3D3D3	;
+  }
+
+  .add {
+    margin-top: 20px;
+  }
+}

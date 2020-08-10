@@ -1,0 +1,110 @@
+font-family: 'Open Sans', sans-serif;
+
+* {
+  font-family: Open Sans;
+}
+
+
+.navbar {
+  background-color: #C8B8DB;
+  color: white;
+}
+
+nav img {
+  height: 4rem;
+}
+
+.navbar-brand {
+  background-color: #C8B8DB;
+  min-height: 64px;
+  padding: 12px 0px;
+}
+
+.navbar-end a {
+  padding: 30px;
+}
+
+.is-prim {
+  color: #FFFFFF;
+  background-color: #A06CD5;
+}
+
+a.navbar-item:hover {
+  background-color: #455A5D;
+  opacity: 0.9;
+  color: #ffffff;
+}
+
+.navbar-brand .navbar-item {
+  background: url('../img/logo.svg') no-repeat center center;
+  background-size: cover;
+  width: 330px;
+  padding: 2rem 2rem;
+}
+
+.is-secC {
+  color: #2D3047;
+}
+
+.is-priC {
+  color: #A06CD5;
+}
+
+#navbarBasicExample a {
+  letter-spacing: 1px;
+}
+
+.navbar-start a {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+@media(max-width: 1024px) {
+
+
+  .navbar-start a {
+    color: #2D3047;
+  }
+}
+
+@media only screen and (min-width: 1023px) {
+  #navbarBasicExample {
+    padding-left: 50px;
+  }
+}
+
+.is-cdark {
+  background-color: #2D3047;
+  border: none;
+  color: #ffffff;
+}
+
+
+.create .button {
+  margin-top: 30px;
+  background-color: #FF931E;
+  color: white;
+  font-weight: bold;
+}
+
+.cookerinoo {
+  color: white;
+  font-weight: 700;
+  background-color: #FF931E;
+}
+
+.transition-fade {
+  opacity: 0;
+  transition: 500ms;
+  transform: translateX(0);
+  transform-origin: left;
+}
+
+html.is-animating .transition-fade {
+  opacity: 1;
+  transform: translateX(100%);
+}
+
+html.is-leaving .transition-fade {
+  opacity: 0;
+}
