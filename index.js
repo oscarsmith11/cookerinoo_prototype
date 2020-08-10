@@ -74,7 +74,6 @@ const  { getUserData, getUserUploads, getUserSaved, loadProfile, uploadProfilePi
 
 const { guessLoad, previousLoad, previousLoadKeyword, getPrevious, nextLoad, getNext, nextLoadKeyword, guessLoadFiltered } = require("./static/js/makeAGuess.js");
 
-const { viewProfile, getViewProfile, getViewRecipes, showViewProfile, thisUserShow, followUser } = require("./static/js/viewProfile.js");
 
 const { loadTrendData, uploadPopulars, uploadFavorites } = require("./static/js/manageTrends.js");
 
